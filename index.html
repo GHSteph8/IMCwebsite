@@ -12,79 +12,72 @@
 <style>
   :root {
     --linen: #f7f4ee;
+    --stone: #fdfcf9;
+    --sage-mist: #e6ebe1;
+    --pebble: #d6cfc2;
     --bark: #2b2a26;
     --moss-gray: #5a5f55;
     --forest: #2f5d46;
+    --deep-forest: #234635;
     --sage: #8aa38b;
     --clay: #9c5532;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; height: 100%; }
+  html, body { margin: 0; }
   body {
     background: var(--linen);
     color: var(--bark);
-    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: var(--sans);
     min-height: 100vh;
-    padding: 3rem 1.5rem;
-    text-align: center;
+    padding: 4rem 1.25rem 3rem;
   }
-  main { max-width: 640px; width: 100%; }
+  main { max-width: 700px; margin: 0 auto; text-align: center; }
   svg { display: inline-block; vertical-align: middle; }
-  .brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
+
+  .brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
   .brand svg { width: 26px; height: 26px; color: var(--forest); flex: none; }
-  .brand-name {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(22px, 4vw, 28px);
-    font-weight: 500;
-    color: var(--bark);
-    margin: 0;
+  .brand-name { font-family: var(--serif); font-size: clamp(23px, 4vw, 28px); font-weight: 500; color: var(--bark); margin: 0; }
+  .tagline { margin: 0 0 2.5rem; font-size: clamp(20px, 3.4vw, 24px); line-height: 1.35; font-weight: 500; color: var(--clay); }
+  .divider { width: 56px; height: 1px; background: var(--sage); margin: 0 auto 2.25rem; border: 0; }
+  .headline { margin: 0 0 1.5rem; font-family: var(--serif); font-size: clamp(28px, 5.5vw, 36px); line-height: 1.15; font-weight: 500; color: var(--forest); }
+  .headline span, .headline em { display: block; }
+  .headline em { font-weight: 400; }
+  .message { margin: 0 auto 3rem; max-width: 440px; font-size: 17px; line-height: 1.7; color: var(--moss-gray); }
+
+  .clients { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; text-align: left; align-items: start; }
+  .card { border-radius: 12px; padding: 1.6rem; }
+  .card.current { background: var(--sage-mist); }
+  .card.new { background: var(--stone); border: 1px solid var(--pebble); }
+  .card-title { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-family: var(--serif); font-size: 25px; font-weight: 500; color: var(--bark); }
+  .card-title svg { width: 21px; height: 21px; color: var(--forest); flex: none; }
+  .card p { margin: 0 0 1rem; font-size: 16px; line-height: 1.65; color: var(--moss-gray); }
+  .card.current p { margin: 0; }
+
+  .field { margin-bottom: 13px; }
+  label { display: block; font-size: 15px; font-weight: 500; color: var(--bark); margin-bottom: 5px; }
+  input, textarea {
+    width: 100%; background: var(--stone); border: 1px solid var(--pebble); border-radius: 8px;
+    padding: 10px 12px; font: 16px var(--sans); color: var(--bark);
   }
-  .tagline {
-    margin: 0 0 2.5rem;
-    font-size: clamp(17px, 2.6vw, 20px);
-    font-weight: 500;
-    color: var(--clay);
+  textarea { resize: vertical; min-height: 110px; }
+  input:focus, textarea:focus { outline: none; border-color: var(--forest); box-shadow: 0 0 0 3px rgba(47, 93, 70, 0.18); }
+  .note { font-size: 14px; line-height: 1.5; color: var(--moss-gray); margin: 0 0 15px; }
+  button {
+    background: var(--forest); color: var(--stone); border: 0; border-radius: 8px;
+    padding: 11px 20px; font: 500 16px var(--sans); cursor: pointer;
   }
-  .divider {
-    width: 56px;
-    height: 1px;
-    background: var(--sage);
-    margin: 0 auto 2.25rem;
-    border: 0;
-  }
-  .headline {
-    margin: 0 0 1.5rem;
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(28px, 5.5vw, 36px);
-    line-height: 1.15;
-    font-weight: 500;
-    color: var(--forest);
-  }
-  .headline span { display: block; }
-  .headline em { display: block; font-weight: 400; }
-  .message {
-    margin: 0 auto;
-    max-width: 440px;
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--moss-gray);
-  }
-  .sprigs {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-top: 2.5rem;
-    color: var(--sage);
-  }
+  button:hover { background: var(--deep-forest); }
+  button:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(47, 93, 70, 0.3); }
+  button[disabled] { opacity: 0.7; cursor: wait; }
+  .form-error { font-size: 14px; color: var(--clay); margin: 10px 0 0; }
+  .thanks { font-size: 16px; line-height: 1.65; color: var(--forest); margin: 0; }
+  .hidden-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  [hidden] { display: none !important; }
+
+  .emergency { margin: 2rem auto 0; max-width: 520px; font-size: 14px; line-height: 1.5; color: var(--moss-gray); }
+  .sprigs { display: flex; justify-content: center; gap: 14px; margin-top: 2rem; color: var(--sage); }
   .sprigs svg { width: 20px; height: 20px; }
 </style>
 </head>
@@ -101,6 +94,49 @@
   <hr class="divider">
   <h2 class="headline"><span>Something thoughtful</span><em>is taking shape.</em></h2>
   <p class="message">Our website is currently under construction. We look forward to welcoming you here soon.</p>
+
+  <div class="clients">
+    <section class="card current" aria-labelledby="current-title">
+      <h3 class="card-title" id="current-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+          <path d="M3 7l9 6l9 -6" />
+        </svg>
+        Current clients
+      </h3>
+      <p>Please email the office with any questions or to arrange your next appointment. We will reply as soon as we can.</p>
+    </section>
+
+    <section class="card new" aria-labelledby="new-title">
+      <h3 class="card-title" id="new-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 15h10v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-4z" />
+          <path d="M12 9a6 6 0 0 0 -6 -6h-3v2a6 6 0 0 0 6 6h3" />
+          <path d="M12 11a6 6 0 0 1 6 -6h3v1a6 6 0 0 1 -6 6h-3" />
+          <path d="M12 15l0 -6" />
+        </svg>
+        New clients
+      </h3>
+      <div id="form-area">
+        <p>To request a consultation, send us a message and we will be in touch. Kindly let us know who referred you.</p>
+        <form id="new-client-form">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required></div>
+          <div class="field"><label for="referred">Who referred you?</label><input id="referred" name="referred_by" type="text"></div>
+          <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" required></textarea></div>
+          <div class="hidden-field" aria-hidden="true"><label for="gotcha">Leave this empty</label><input id="gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="_subject" value="New client message from integrativemedicalconsults.com">
+          <p class="note">Please do not include medical details in this message.</p>
+          <button type="submit" id="send">Send message</button>
+          <p class="form-error" id="form-error" role="alert" hidden>Your message could not be sent. Please try again in a few minutes.</p>
+        </form>
+      </div>
+      <p class="thanks" id="thanks" role="status" hidden>Thank you for your message. We have received it and will reply soon.</p>
+    </section>
+  </div>
+
+  <p class="emergency">If you have a medical emergency, call 911 or go to the nearest emergency room.</p>
+
   <div class="sprigs" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M2 9a10 10 0 1 0 20 0" />
@@ -121,5 +157,39 @@
     </svg>
   </div>
 </main>
+
+<script>
+  // Address of the form service that delivers messages to the office email.
+  // Filled in once the form service is set up.
+  var FORM_ENDPOINT = "";
+
+  (function () {
+    var form = document.getElementById("new-client-form");
+    var send = document.getElementById("send");
+    var error = document.getElementById("form-error");
+    var area = document.getElementById("form-area");
+    var thanks = document.getElementById("thanks");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      error.hidden = true;
+      if (!FORM_ENDPOINT) { error.hidden = false; return; }
+      send.disabled = true;
+      fetch(FORM_ENDPOINT, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).then(function (response) {
+        if (!response.ok) { throw new Error("send failed"); }
+        area.hidden = true;
+        thanks.hidden = false;
+      }).catch(function () {
+        error.hidden = false;
+      }).then(function () {
+        send.disabled = false;
+      });
+    });
+  })();
+</script>
 </body>
 </html>
