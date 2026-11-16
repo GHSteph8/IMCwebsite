@@ -377,7 +377,7 @@
               <div class="field"><label for="referred">Who referred you?</label><input id="referred" name="referred_by" type="text"></div>
               <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" required></textarea></div>
               <div class="hidden-field" aria-hidden="true"><label for="gotcha">Leave this empty</label><input id="gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
-              <input type="hidden" name="_subject" value="New client message from integrativemedicalconsults.com">
+              <input type="hidden" name="_email.subject" value="New client message from integrativemedicalconsults.com">
               <p class="note">Please do not include medical details in this message.</p>
               <button type="submit" class="btn btn-primary" id="send">Send message</button>
               <p class="privacy">We use the information you send through this form only to respond to your message.</p>
@@ -407,9 +407,9 @@
 </footer>
 
 <script>
-  // Address of the form service that delivers messages to the office email.
-  // Filled in once the form service is set up.
-  var FORM_ENDPOINT = "";
+  // Formspark address that delivers new client messages by email.
+  // Filled in once the Formspark form is set up: https://submit-form.com/<form id>
+  var FORM_ENDPOINT = "https://submit-form.com/7e74Ud4te";
 
   (function () {
     var form = document.getElementById("new-client-form");
@@ -423,10 +423,12 @@
       error.hidden = true;
       if (!FORM_ENDPOINT) { error.hidden = false; return; }
       send.disabled = true;
+      var data = {};
+      new FormData(form).forEach(function (value, key) { data[key] = value; });
       fetch(FORM_ENDPOINT, {
         method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
       }).then(function (response) {
         if (!response.ok) { throw new Error("send failed"); }
         area.hidden = true;
