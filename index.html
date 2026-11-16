@@ -84,6 +84,7 @@
   .links a:hover, .links a.active { border-bottom-color: var(--gold); }
   .links a.active { color: var(--gold-light); }
   .nav .btn { padding: 10px 18px; font-size: 15px; }
+  .mobile-book { display: none; }
 
   /* Hero */
   .hero { background: linear-gradient(90deg, #f1e9da 0%, var(--cream) 60%, #fbf8f2 100%); overflow: hidden; border-bottom: 1px solid var(--sand); }
@@ -190,6 +191,8 @@
   }
   @media (max-width: 520px) {
     .nav .btn { display: none; }
+    .mobile-book { display: block; padding: 0 16px 12px; }
+    .mobile-book .btn { display: flex; justify-content: center; width: 100%; padding: 9px 14px; font-size: 15px; }
     .brand-name { font-size: 18px; }
   }
 </style>
@@ -222,6 +225,7 @@
     </a>
     <a class="btn btn-gold-outline" href="#new-clients">Book a Consultation</a>
   </div>
+  <div class="mobile-book"><a class="btn btn-gold-outline" href="#new-clients">Book a Consultation</a></div>
 </header>
 
 <main id="top">
