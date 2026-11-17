@@ -88,9 +88,8 @@
   .links a:hover, .links a.active { border-bottom-color: var(--gold); }
   .links a.active { color: var(--gold-light); }
   .nav .btn { padding: 10px 18px; font-size: 15px; }
-  .mobile-book { display: none; }
   .header-links { gap: 28px; margin-left: auto; margin-right: 8px; }
-  .subnav { display: none; }
+  .page-links { display: none; }
 
   /* Hero */
   .hero { background: linear-gradient(90deg, #f1e9da 0%, var(--cream) 60%, #fbf8f2 100%); overflow: hidden; border-bottom: 1px solid var(--sand); }
@@ -191,9 +190,11 @@
     .quad .card { flex-basis: calc((100% - 20px) / 2); }
     .trio { grid-template-columns: 1fr; }
     .header-links { display: none; }
-    .subnav { display: flex; justify-content: center; gap: 28px; padding: 0 16px 12px; }
-    .subnav a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--on-dark); padding: 4px 0; border-bottom: 2px solid transparent; }
-    .subnav a:hover { border-bottom-color: var(--gold); }
+    .who { border-bottom: 0; padding-bottom: 36px; }
+    .page-links { display: block; background: var(--cream-deep); padding: 0 0 48px; }
+    .page-links .wrap { display: flex; flex-direction: column; align-items: stretch; gap: 12px; max-width: 460px; }
+    .page-links .btn { justify-content: center; }
+    .page-links .book-phone { display: none; }
   }
   @media (max-width: 760px) {
     body { font-size: 16.5px; }
@@ -214,10 +215,7 @@
   }
   @media (max-width: 520px) {
     .nav .btn { display: none; }
-    .mobile-book { display: block; padding: 0 16px 12px; }
-    .subnav { gap: 20px; }
-    .subnav a { font-size: 14px; }
-    .mobile-book .btn { display: flex; justify-content: center; width: 100%; padding: 9px 14px; font-size: 15px; }
+    .page-links .book-phone { display: inline-flex; }
     .brand-name { font-size: 18px; }
   }
 </style>
@@ -254,11 +252,6 @@
     </nav>
     <a class="btn btn-gold-outline" href="#new-clients">Book a Consultation</a>
   </div>
-  <nav class="subnav" aria-label="Main">
-    <a href="/team.html">Meet Our Team</a>
-    <a href="/laboratory-testing.html">Advanced Laboratory Testing</a>
-  </nav>
-  <div class="mobile-book"><a class="btn btn-gold-outline" href="#new-clients">Book a Consultation</a></div>
 </header>
 
 <main id="top">
@@ -360,6 +353,14 @@
       </ul>
     </div>
   </section>
+
+  <nav class="page-links" aria-label="More pages">
+    <div class="wrap">
+      <a class="btn btn-outline" href="/team.html">Meet Our Team</a>
+      <a class="btn btn-outline" href="/laboratory-testing.html">Advanced Laboratory Testing</a>
+      <a class="btn btn-primary book-phone" href="#new-clients">Book a Consultation</a>
+    </div>
+  </nav>
 
   <section class="philosophy" aria-label="Our philosophy">
     <svg class="philo-leaves left" viewBox="0 0 300 200" aria-hidden="true">
