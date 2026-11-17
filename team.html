@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet Our Team | Integrative Medical Consultations</title>
+<meta name="description" content="Meet Our Team at Integrative Medical Consultations. This page is in development.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#12291d">
+<style>
+  @font-face { font-family: "Outfit"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/outfit-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Source Sans 3"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Source Sans 3"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/source-sans-3-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-style: italic; font-display: swap; src: url("/fonts/cormorant-garamond-latin-600-italic.woff2") format("woff2"); }
+  :root { --white: #fff; --cream: #f8f4eb; --cream-deep: #efe7d8; --forest-dark: #12291d; --forest: #1f4a34; --forest-hover: #163826; --gold: #b8955a; --gold-light: #d9c08f; --gold-text: #85652f; --ink: #1d2e24; --text: #3f4a42; --on-dark: #e9e1d0; --on-dark-soft: #c9d2c9; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { display: flex; flex-direction: column; min-height: 100vh; background: var(--cream); color: var(--text); font-family: "Source Sans 3", system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
+  a { color: inherit; }
+  header { background: var(--forest-dark); border-bottom: 1px solid rgba(184, 149, 90, .35); }
+  .nav { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--gold); display: grid; place-items: center; color: var(--gold-light); flex: none; }
+  .logo svg { width: 25px; height: 25px; }
+  .brand-name { font-family: "Outfit", system-ui, sans-serif; font-weight: 600; font-size: 20px; color: var(--on-dark); line-height: 1.15; display: block; }
+  .brand-tag { font-size: 13.5px; color: var(--gold-light); display: block; line-height: 1.3; }
+  .links { display: flex; align-items: center; gap: 28px; margin-left: auto; margin-right: 8px; }
+  .links a, .subnav a { text-decoration: none; font-weight: 600; font-size: 15.5px; color: var(--on-dark); padding: 6px 0; border-bottom: 2px solid transparent; }
+  .links a:hover, .subnav a:hover, .links a.active, .subnav a.active { border-bottom-color: var(--gold); }
+  .links a.active, .subnav a.active { color: var(--gold-light); }
+  .subnav { display: none; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 15px; text-decoration: none; border-radius: 9px; padding: 10px 18px; border: 1.5px solid var(--gold); color: var(--gold-light); background: transparent; }
+  .btn:hover { background: rgba(217, 192, 143, .12); }
+  .btn-home { background: var(--forest); border-color: var(--forest); color: #fff; font-size: 16px; padding: 12px 24px; }
+  .btn-home:hover { background: var(--forest-hover); border-color: var(--forest-hover); }
+  a:focus-visible { outline: 3px solid rgba(184, 149, 90, .55); outline-offset: 2px; }
+  .mobile-book { display: none; }
+  main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 72px 24px; text-align: center; background: linear-gradient(90deg, #f1e9da 0%, var(--cream) 60%, #fbf8f2 100%); }
+  .eyebrow { display: inline-block; margin: 0 0 20px; padding: 7px 16px; border: 1.5px solid var(--gold); border-radius: 999px; font-size: 15px; font-weight: 600; letter-spacing: .02em; color: var(--gold-text); background: rgba(255, 255, 255, .55); }
+  h1 { font-family: "Outfit", system-ui, sans-serif; font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.15; color: var(--ink); margin: 0; }
+  .line { width: 56px; height: 3px; border-radius: 2px; background: var(--gold); margin: 18px auto 20px; }
+  .sub { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(34px, 5.6vw, 52px); line-height: 1.15; color: var(--gold-text); margin: 0 0 36px; }
+  footer { background: var(--forest-dark); text-align: center; padding: 24px; }
+  .disclaimer { font-size: 13.5px; color: var(--on-dark-soft); margin: 0 0 6px; }
+  .copyright { font-size: 13.5px; color: var(--gold-light); margin: 0; }
+  @media (max-width: 980px) {
+    .links { display: none; }
+    .subnav { display: flex; justify-content: center; gap: 28px; padding: 0 16px 12px; }
+    .subnav a { font-size: 15px; padding: 4px 0; }
+  }
+  @media (max-width: 760px) { .nav { height: 68px; } .brand-tag { display: none; } }
+  @media (max-width: 520px) {
+    .nav .btn { display: none; }
+    .brand-name { font-size: 18px; }
+    .subnav { gap: 20px; }
+    .subnav a { font-size: 14px; }
+    .mobile-book { display: block; padding: 0 16px 12px; }
+    .mobile-book .btn { display: flex; width: 100%; padding: 9px 14px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="/" aria-label="Integrative Medical Consultations, home">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21c.5 -4.5 2.5 -8 7 -10"/><path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z"/></svg></span>
+      <span>
+        <span class="brand-name">Integrative Medical Consultations</span>
+        <span class="brand-tag">Professional Expertise For Complex Health Issues</span>
+      </span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="/team.html" class="active" aria-current="page">Meet Our Team</a>
+      <a href="/laboratory-testing.html">Advanced Laboratory Testing</a>
+    </nav>
+    <a class="btn" href="/#new-clients">Book a Consultation</a>
+  </div>
+  <nav class="subnav" aria-label="Main">
+    <a href="/team.html" class="active" aria-current="page">Meet Our Team</a>
+    <a href="/laboratory-testing.html">Advanced Laboratory Testing</a>
+  </nav>
+  <div class="mobile-book"><a class="btn" href="/#new-clients">Book a Consultation</a></div>
+</header>
+<main>
+  <div>
+    <p class="eyebrow">Meet Our Team</p>
+    <h1>This Page Is in Development</h1>
+    <div class="line"></div>
+    <p class="sub">Exciting Updates Are Coming!</p>
+    <a class="btn btn-home" href="/">Return to the homepage</a>
+  </div>
+</main>
+<footer>
+  <p class="disclaimer">The information on this website is for general information only and is not medical advice.</p>
+  <p class="copyright">© 2026 Integrative Medical Consultations</p>
+</footer>
+</body>
+</html>
